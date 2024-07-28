@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bartosz INC. BOS 12</title>
+    <link rel="stylesheet" href="assets/os/style.css">
+</head>
+<body>
+    <div class="desktop" id="desktop" oncontextmenu="showWallpaperContextMenu(event)">
+        <!-- Desktop Icons -->
+        <div class="icon" onclick="openWindow('fileExplorerWindow')" oncontextmenu="showContextMenu(event, 'File Explorer')">
+            <img src="assets/explorer/icon.png" alt="File Explorer">
+            <span>File Explorer</span>
+        </div>
+        <div class="icon" onclick="openConsole('bosPowershellConsole')" oncontextmenu="showContextMenu(event, 'BOS Powershell')">
+            <img src="assets/other_icons/powershell.png" alt="BOS Powershell">
+            <span>BOS Powershell</span>
+        </div>
+        <div class="icon" id="trashIcon" onclick="openWindow('trashWindow')" oncontextmenu="showContextMenu(event, 'Trash')">
+            <img src="assets/trash.png" alt="Trash">
+            <span>Trash</span>
+        </div>
+    </div>
+
+    <div class="taskbar">
+        <a href="javascript:toggleStartMenu()"><img src="assets/logo.png" alt="Logo"></a>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+        </div>
+        <div class="pinned-apps">
+            <div class="icon">
+                <img src="https://via.placeholder.com/32" alt="Pinned App">
+            </div>
+            <div class="icon">
+                <img src="https://via.placeholder.com/32" alt="Pinned App">
+            </div>
+            <div class="icon">
+                <img src="https://via.placeholder.com/32" alt="Pinned App">
+            </div>
+        </div>
+        <div class="time" id="time"></div>
+    </div>
+
+    <div class="start-menu" id="startMenu">
+        <ul>
+            <li onclick="openWindow('fileExplorerWindow')">File Explorer</li>
+            <li onclick="openConsole('bosPowershellConsole')">BOS Powershell</li>
+            <li onclick="openWindow('trashWindow')">Trash</li>
+        </ul>
+    </div>
+
+    <div class="context-menu" id="contextMenu">
+        <ul>
+            <li onclick="openItem()">Open</li>
+            <li onclick="pinToTaskbar()">Pin to taskbar</li>
+            <li onclick="renameItem()">Rename</li>
+            <li onclick="deleteItem()">Delete</li>
+            <li onclick="properties()">Properties</li>
+        </ul>
+    </div>
+
+    <div class="wallpaper-context-menu" id="wallpaperContextMenu">
+        <ul>
+            <li onclick="createFile('New Text Document.txt')">New Text Document</li>
+            <li onclick="createFile('New BOS Powershell Document.ps1')">New BOS Powershell Document</li>
+            <li onclick="createFile('New Bebel Document.bebl')">New Bebel Document</li>
+            <li onclick="createFile('New Bord Document.bocx')">New Bord Document</li>
+        </ul>
+    </div>
+
+    <div class="window" id="fileExplorerWindow">
+        <div class="window-header">
+            <span>File Explorer</span>
+            <button onclick="closeWindow('fileExplorerWindow')">X</button>
+        </div>
+        <div class="window-content">
+            <img class="videos" src="assets/explorer/videos.png" width="64" height="64">
+            <h1 class="videos">Videos</h1>
+            <!-- MORE HERE -->
+        </div>
+    </div>
+
+    <div class="console" id="bosPowershellConsole">
+        <div class="console-header">
+            <span>BOS Powershell</span>
+            <button onclick="closeWindow('bosPowershellConsole')">X</button>
+        </div>
+        <div class="console-content">
+            <h1>BOS POWERSHELL (C) COPYRIGHT BARTOSZ INC.</h1>
+            <div class="cursor"><form action="TYPING" method="get"></div><input type="text" name="TYPING" placeholder="typing..." hidden required>
+        </div>
+    </div>
+
+    <div class="window" id="trashWindow">
+        <div class="window-header">
+            <span>Trash</span>
+            <button onclick="closeWindow('trashWindow')">X</button>
+        </div>
+        <div class="window-content">
+            <!-- Trash content goes here -->
+            <ul id="trashContent">
+                <!-- List of deleted items -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="assets/os/scripts.js"></script>
+</body>
+</html>
